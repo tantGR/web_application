@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: LightGoldenRodYellow   ;
+}
+
+label{
+	font-size: 20px;
+	padding-right: 10px;
+}
+
+
+input[type=text], input[type=password] {
+  width: 15%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4C00ff;
+  color: white;
+  padding: 10px 15px;
+  margin: 8px 120px;
+  border: none;
+  cursor: pointer;
+  width: 15%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 0.7;
+}
+
+a {
+  color: dodgerblue;
+}
