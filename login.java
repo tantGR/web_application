@@ -39,7 +39,7 @@ public class login extends HttpServlet {
 			String pswd = request.getParameter("password");
 			String dbname = null;
 			String dbpswd = null;
-			String sql = "select * from registration where user=? & password=?";
+			String sql = "select * from registration where user=? and password=?";
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webdb", "root","root");
 			
@@ -48,14 +48,17 @@ public class login extends HttpServlet {
 			ps.setString(2,pswd);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				dbname = rs.getString(1);
-				dbpswd = rs.getString(2);
+				dbname = rs.getString("user");
+				dbpswd = rs.getString("password");
 			}
 			if(name.equals(dbname) && pswd.equals(dbpswd)){
-				out.println("Log in successful!");
+				//out.println("Log in successful!");
+				RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
+				rd.include(request, response);
 			}
 			else {
 				//response.sendRedirect("index.jsp");
+				out.println("Invalid username or password.");
 				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 				rd.include(request, response);
 			}

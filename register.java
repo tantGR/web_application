@@ -44,7 +44,9 @@ public class register extends HttpServlet {
 			ps.setString(1,name);
 			ps.setString(2,pswd);
 			ps.executeUpdate();
-			out.println("Welcome!");
+//			/out.println("Welcome!");
+			RequestDispatcher rd = request.getRequestDispatcher("welcome.jsp");
+			rd.include(request, response);
 			
 		} 
 		catch (ClassNotFoundException e) {
